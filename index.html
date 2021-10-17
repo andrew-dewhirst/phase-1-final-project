@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pokemon Project</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="pokemon-header">
+      <img
+        src="images/Header_Image.png"
+        alt="pokemon-header"
+      />
+    </div>
+
+    <div class="container">
+      <form class="search-for-pokemon">
+        <h2>Let's get started!</h2>
+
+        <input
+          type="search"
+          name="name"
+          value=""
+          placeholder="Search by name..."
+          class="input-text"
+          id = "input-pokemon-name"
+        />
+        <br />
+        <input
+          type="search"
+          name="type"
+          value=""
+          placeholder="Search by type..."
+          class="input-text"
+          id = "input-pokemon-type"
+        />
+        <br />
+      </form>
+      <div class = "header-buttons">
+        <input
+          type="button"
+          name="button"
+          value="Find Pokemon"
+          class="submit"
+        />
+        <input
+          type="button"
+          name="create"
+          value="Finalize your lineup!"
+          class="submit"
+          id="create-lineup-btn"
+          />
+        <input
+          type="button"
+          name="reset"
+          value="Reset your lineup"
+          class="submit"
+          id="reset-lineup-btn"
+          />
+      </div>
+    </div>
+
+    
+    <div class='row'>
+      <div id='pokemon-list' class='column'>
+        </div>
+      <div id='pokemon-collection' class='column grid'>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>

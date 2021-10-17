@@ -1,0 +1,174 @@
+body {
+  margin: 0;
+  font-family: monospace;
+}
+
+/* display the three action buttons in an evenly-spaced row */
+.header-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* updates the cancel functionality in the search bars */
+.input-text::-webkit-search-cancel-button{
+  position:relative;
+  right:20px;    
+}
+
+
+/* .row and .column to set up 2-column format - one column the initial list and one column for the cards */
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  background: #3D7DCA;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+/* .grid to create a 2x3 grid of the Pokemon lineup */
+.grid {
+  margin: 20px auto;
+  width:400px;
+  height:400px;
+  background: #3D7DCA;
+  display:grid;
+  grid-template-columns: 200px 200px;
+  grid-row: auto auto;
+  grid-column-gap: 100px;
+  grid-row-gap: 20px;
+}
+
+#pokemon-list {
+  margin: 2rem;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.sprite {
+  display: inline-block;
+  margin-left: auto;
+}
+
+.add-btn {
+  margin-left: auto;
+  color: #003A70;
+  background: #FFCB05;
+}
+
+
+.remove-btn {
+    margin-right:15px;
+    margin-left: 15px;
+    margin-top: 40px;
+    background: #003A70;
+    color: #FFCB05;
+}
+
+/* size and align the Pokemon logo and header div at the top of the screen and put it "behind" the other content */
+#pokemon-header {
+  display: flex;
+  justify-content: center;
+  background: #003A70;
+  height: 7rem;
+  padding: 1rem;
+}
+
+#pokemon-header img {
+  width: 900px;
+  height: 800px;
+  position: relative;
+  top: -250px;
+  opacity: .2;
+}
+
+#pokemon-collection {
+  margin: 2rem;
+}
+
+/* style the created Pokemon cards */
+.card {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 15rem;
+  height: 22rem;
+  display: inline-block;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px #003a70;
+  background: #FFCB05;
+}
+
+.pokemon-avatar {
+  justify-self: center;
+  height: 12rem;
+  width: auto;
+}
+
+/* format the buttons (both the header buttons and list buttons */
+button {
+  position: relative;
+  border: none;
+  border-radius: 5px;
+  height: 3rem;
+  width: max-content;
+  font-size: 18px;
+  justify-self: center;
+}
+
+button:hover {
+  background-color: whitesmoke;
+  border: #003A70;
+  color: #003A70;
+}
+
+.container {
+  padding: 1rem;
+  width: stretch;
+  height: auto;
+  display: block;
+  background: #003A70;
+}
+
+.search-for-pokemon {
+  width: 80%;
+}
+
+.submit {
+  position: relative;
+  background-color: #FFCB05;
+  border-radius: 5px;
+  height: 2rem;
+  width: max-content;
+  color: #003A70;
+  font-size: 18px;
+  justify-self: center;
+  font-family: monospace;
+  margin: 3px;
+}
+
+.submit:hover {
+  background-color: whitesmoke;
+  border: #003A70;
+  color: #003A70;
+}
+
+
+.input-text {
+  border-radius: 5px;
+  height: 2rem;
+  width: 60%;
+  font-size: 18px;
+  font-family: monospace;
+  margin: 3px;
+}
