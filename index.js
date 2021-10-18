@@ -113,6 +113,11 @@ function filterBySearchTerm(){
       let pokemonList = document.querySelector('#pokemon-list');
       pokemonList.innerHTML = "";
       displayList(arrayOfPokemon);
+      
+      let addButtonArray = Array.from(document.querySelectorAll('.add-btn'));
+      addButtonArray.forEach (button => {
+        button.addEventListener('click', displayCards); 
+      })
   };
 };
 
