@@ -10,11 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     displayList(arrayOfPokemon);
     //Click event for the Pokemon "search by" text boxes
     document.querySelector('.submit').addEventListener('click',filterBySearchTerm);
-    //Click event to show full-sized cards once "Add to Lineup" is clicked
-    let addButtonArray = Array.from(document.querySelectorAll('.add-btn'));
-    addButtonArray.forEach (button => {
-      button.addEventListener('click', displayCards) 
-      })
     //Click event to reset entire lineup
     document.querySelector('#reset-lineup-btn').addEventListener('click',clearLineup);
     //Click event to print final lineup to popup box
@@ -41,6 +36,7 @@ function displayList(arrayOfPokemon){
     let addButton = document.createElement('button');
     addButton.textContent = 'Add to Lineup';
     addButton.className = 'add-btn';
+    addButton.addEventListener('click',displayCards);
     pokemonInfo.appendChild(addButton);
 
     document.querySelector('#pokemon-list').appendChild(pokemonInfo)
@@ -57,67 +53,14 @@ function filterBySearchTerm(){
 
   if (inputName !== ""){
     document.querySelector('#pokemon-list').innerText = '';
-    pokemonNames.forEach(pokemon => {
-      let pokemonInfo = document.createElement('div');
-      pokemonInfo.className = 'list';
-
-      let listing = document.createElement('h2');
-      listing.textContent = pokemon.name;
-      pokemonInfo.appendChild(listing);
-
-      let sprite = document.createElement('img');
-      sprite.src = pokemon.sprite;
-      sprite.className = 'sprite';
-      pokemonInfo.appendChild(sprite);
-
-      let addButton = document.createElement('button');
-      addButton.textContent = 'Add to Lineup';
-      addButton.className = 'add-btn';
-      pokemonInfo.appendChild(addButton);
-
-      document.querySelector('#pokemon-list').appendChild(pokemonInfo);
-
-      let addButtonArray = Array.from(document.querySelectorAll('.add-btn'));
-      addButtonArray.forEach (button => {
-        button.addEventListener('click', displayCards);
-      });
-    });
+    displayList(pokemonNames);
   } else if (inputType !== ""){
       document.querySelector('#pokemon-list').innerText = '';
-      pokemonTypes.forEach(pokemon => {
-        let pokemonInfo = document.createElement('div');
-        pokemonInfo.className = 'list';
-  
-        let filteredListing = document.createElement('h2');
-        filteredListing.textContent = pokemon.name;
-        pokemonInfo.appendChild(filteredListing);
-  
-        let filteredSprite = document.createElement('img');
-        filteredSprite.src = pokemon.sprite;
-        filteredSprite.className = 'sprite';
-        pokemonInfo.appendChild(filteredSprite);
-  
-        let addButton = document.createElement('button');
-        addButton.textContent = 'Add to Lineup';
-        addButton.className = 'add-btn';
-        pokemonInfo.appendChild(addButton);
-  
-        document.querySelector('#pokemon-list').appendChild(pokemonInfo);
-
-        let addButtonArray = Array.from(document.querySelectorAll('.add-btn'));
-        addButtonArray.forEach (button => {
-          button.addEventListener('click', displayCards); 
-      });
-    });  
+      displayList(pokemonTypes);
   } else if (inputName == "" && inputType == ""){
       let pokemonList = document.querySelector('#pokemon-list');
       pokemonList.innerHTML = "";
       displayList(arrayOfPokemon);
-      
-      let addButtonArray = Array.from(document.querySelectorAll('.add-btn'));
-      addButtonArray.forEach (button => {
-        button.addEventListener('click', displayCards); 
-      })
   };
 };
 
@@ -139,18 +82,14 @@ function displayCards(event){
         img.classList = 'pokemon-avatar';
         pokemonCard.appendChild(img);
 
-        let likeButton = document.createElement('button');
-        likeButton.textContent = 'Remove From Lineup';
-        likeButton.className = 'remove-btn';
-        likeButton.id = pokemon.id;
-        pokemonCard.appendChild(likeButton);
+        let removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove From Lineup';
+        removeButton.className = 'remove-btn';
+        removeButton.id = pokemon.id;
+        removeButton.addEventListener('click',(event) => event.target.parentNode.remove());
+        pokemonCard.appendChild(removeButton);
 
         document.querySelector('#pokemon-collection').appendChild(pokemonCard);
-
-        let removeButtonArray = Array.from(document.querySelectorAll('.remove-btn'));
-        removeButtonArray.forEach (button => {
-          button.addEventListener('click', (event) => event.target.parentNode.remove());
-      })
     };
   });
 };
